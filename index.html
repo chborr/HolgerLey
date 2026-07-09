@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holger Ley — Rechtsanwalt in Schleswig</title>
+<style>
+
+/* ============ TOKENS ============ */
+:root{
+  --navy:#14293A;
+  --navy-deep:#0D1D29;
+  --ivory:#f4f2ec;
+  --sand:#e8e4db;
+  --brass:#A9834F;
+  --brass-light:#C7A876;
+  --ink:#1C1B18;
+  --line: rgba(20,41,58,0.14);
+  --max: 1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  letter-spacing:-0.01em;
+  color:var(--navy-deep);
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  font-weight:600;
+}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ============ SIGNATURE MARK (Siegel / Dom-Silhouette) ============ */
+.seal{
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid var(--brass);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.seal svg{width:30px;height:30px;}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(246,242,233,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+  z-index:100;
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;max-width:var(--max);margin:0 auto;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-name{font-family:'Fraunces',serif;font-size:19px;color:var(--navy-deep);}
+.brand-name span{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-top:1px;}
+.nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:500;}
+.nav-links a{position:relative;padding:4px 0;color:var(--navy-deep);}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:width .25s;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--navy-deep);color:var(--ivory);
+  padding:10px 20px;border-radius:2px;font-size:14px;font-weight:500;
+  border:1px solid var(--navy-deep);
+  transition:background .2s, color .2s;
+}
+.nav-cta:hover{background:transparent;color:var(--navy-deep);}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.menu-toggle span{display:block;width:22px;height:1.5px;background:var(--navy-deep);margin:5px 0;}
+
+/* ============ HERO ============ */
+.hero{
+  padding:168px 32px 0;
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;
+}
+.hero-eyebrow{margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow .rule{width:34px;height:1px;background:var(--brass);}
+.hero h1{
+  font-size:clamp(34px,4.4vw,54px);
+  line-height:1.12;
+  margin-bottom:22px;
+}
+.hero h1 em{font-style:italic;color:var(--brass);}
+.hero p.lead{
+  font-size:17.5px;color:#3c3a35;max-width:44ch;margin-bottom:34px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 26px;font-size:14.5px;font-weight:500;border-radius:2px;
+  transition:all .2s;
+}
+.btn-primary{background:var(--navy-deep);color:var(--ivory);border:1px solid var(--navy-deep);}
+.btn-primary:hover{background:var(--brass);border-color:var(--brass);}
+.btn-ghost{border:1px solid var(--line);color:var(--navy-deep);}
+.btn-ghost:hover{border-color:var(--navy-deep);}
+.hero-figure{position:relative;}
+.hero-card{
+  background:var(--navy-deep);
+  aspect-ratio:4/5;border-radius:2px;
+  display:flex;align-items:flex-end;padding:28px;position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+.hero-card .cap{position:relative;color:var(--ivory);}
+.hero-card .cap .eyebrow{color:var(--brass-light);margin-bottom:6px;}
+.hero-card .cap p{font-family:'Fraunces',serif;font-size:19px;}
+.hero-skyline{position:absolute;top:0;left:0;right:0;opacity:0.5;}
+
+/* Skyline divider */
+.skyline-divider{width:100%;height:auto;display:block;color:var(--navy-deep);}
+.skyline-band{background:var(--sand);padding:10px 0 0;overflow:hidden;margin-top:90px;}
+
+/* ============ SECTION SHELL ============ */
+section{padding:104px 0;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(26px,3vw,36px);margin-top:14px;}
+.section-head p{color:#4a4740;font-size:16px;margin-top:14px;max-width:56ch;}
+
+/* ============ ÜBER MICH ============ */
+.about{display:grid;grid-template-columns:0.8fr 1.2fr;gap:72px;align-items:start;}
+.about-portrait{
+  background:url('https://images.noz-mhn.de/img/44706202/crop/ccom.escenic.master-w628/2042929635/592378204/ley-holger-16-quadrat.jpg');aspect-ratio:3/4;border-radius:2px;
+  background-size:cover ;
+  background-position: center;
+  
+}
+.about-portrait span{font-size:13px;color:#8a8474;font-style:italic;padding:0 20px;text-align:center;}
+.credentials{list-style:none;margin-top:28px;border-top:1px solid var(--line);}
+.credentials li{
+  display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);
+  font-size:15px;
+}
+.credentials li .yr{color:var(--brass);font-weight:600;min-width:78px;flex-shrink:0;font-family:'Fraunces',serif;}
+
+/* ============ WERDEGANG (Timeline) ============ */
+.timeline{position:relative;padding-left:32px;border-left:1.5px solid var(--line);}
+.tl-item{position:relative;padding-bottom:40px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:"";position:absolute;left:-37.5px;top:4px;
+  width:9px;height:9px;border-radius:50%;background:var(--brass);
+  border:3px solid var(--ivory);
+}
+.tl-item .yr{font-family:'Fraunces',serif;color:var(--navy-deep);font-size:15px;font-weight:600;margin-bottom:4px;}
+.tl-item p{color:#4a4740;font-size:15px;max-width:60ch;}
+
+/* ============ RECHTSGEBIETE ============ */
+.practice-band{background:var(--navy-deep);color:var(--ivory);}
+.practice-band .section-head p{color:rgba(255, 255, 255);}
+.practice-band .eyebrow{color:var(--brass-light);}
+.practice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,242,233,0.14);border:1px solid rgba(246,242,233,0.14);}
+.practice-card{
+  background:var(--navy-deep);padding:34px 30px;
+  transition:background .25s;
+}
+.practice-card:hover{background:#1B3348;}
+.practice-card .num{font-family:'Fraunces',serif;font-size:13px;color:var(--brass-light);margin-bottom:16px;display:block;}
+.practice-card h3{color:var(--ivory);font-size:19px;margin-bottom:10px;font-weight:bold;}
+.practice-card p{color:rgba(255, 255, 255);font-size:14.5px;}
+
+/* ============ ARBEITSWEISE ============ */
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:44px;}
+.value h3{font-size:19px;margin-bottom:10px;display:flex;align-items:center;gap:12px;}
+.value .idx{font-family:'Fraunces',serif;font-style:italic;color:var(--brass);font-size:16px;}
+.value p{color:#4a4740;font-size:15px;}
+
+/* ============ KONTAKT ============ */
+.contact-band{background:var(--sand);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+.contact-info h2{font-size:clamp(26px,3vw,34px);margin-bottom:18px;}
+.contact-info p.lead{color:#4a4740;font-size:16px;margin-bottom:32px;max-width:46ch;}
+.info-row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+.info-row:last-of-type{border-bottom:1px solid var(--line);}
+.info-row .label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--brass);font-weight:600;min-width:110px;}
+.info-row .val{font-size:15px;}
+.info-row .val a:hover{color:var(--brass);}
+
+.form-card{background:var(--ivory);border:1px solid var(--line);padding:36px;border-radius:2px;}
+.form-card h3{font-size:18px;margin-bottom:22px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:0.08em;color:#6b6558;margin-bottom:7px;font-weight:600;}
+.field input,.field textarea{
+  width:100%;border:1px solid var(--line);background:var(--ivory);
+  padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;border-radius:2px;
+  color:var(--ink);
+}
+.field input:focus,.field textarea:focus{border-color:var(--brass);outline:none;}
+.field textarea{resize:vertical;min-height:100px;}
+.form-note{font-size:12.5px;color:#8a8474;margin-top:14px;}
+
+/* ============ FOOTER ============ */
+footer{background:var(--navy-deep);color:rgba(246,242,233,0.7);padding:48px 0 28px;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px;padding-bottom:32px;border-bottom:1px solid rgba(246,242,233,0.14);margin-bottom:24px;}
+.footer-brand{display:flex;align-items:center;gap:12px;}
+.footer-brand .brand-name{color:var(--ivory);}
+.footer-links{display:flex;gap:28px;font-size:13.5px;}
+.footer-links a:hover{color:var(--ivory);}
+.footer-bottom{display:flex;justify-content:space-between;font-size:12.5px;color:rgba(246,242,233,0.45);flex-wrap:wrap;gap:10px;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px) and (min-width:881px){
+  .practice-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:880px){
+  .nav-links,.nav-cta{display:none;}
+  .menu-toggle{display:block;}
+  .hero{grid-template-columns:1fr;padding-top:140px;}
+  .hero-figure{order:-1;max-width:280px;}
+  .about{grid-template-columns:1fr;}
+  .about-portrait{max-width:280px;}
+  .practice-grid{grid-template-columns:1fr 1fr;}
+  .values{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  section{padding:72px 0;}
+}
+@media (max-width:560px){
+  .practice-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M4 30 L10 22 L15 26 L21 16 L27 24 L32 18 L37 30" stroke="#A9834F" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><line x1="20" y1="16" x2="20" y2="8" stroke="#A9834F" stroke-width="1.4"/></svg>
+      </div>
+      <div class="brand-name">Holger Ley<span>Rechtsanwalt · Schleswig</span></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#ueber-mich">Über mich</a>
+      <a href="#rechtsgebiete">Rechtsgebiete</a>
+      <a href="#werdegang">Werdegang</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="mailto:RA-Ley@online.de" class="nav-cta">Jetzt kontaktieren</a>
+    <button class="menu-toggle" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="padding-bottom:0;">
+    <div>
+      <div class="hero-eyebrow"><span class="rule"></span><span class="eyebrow">Kanzlei Holger Ley · Schleswig an der Schlei</span></div>
+      <h1>Strafverteidigung<br> mit Klarheit.</h1>
+      <p class="lead">Als Fachanwalt für Strafrecht vertrete ich Mandantinnen und Mandanten in Schleswig und Umgebung — in Ermittlungsverfahren, vor Gericht und als Nebenklage- oder Opfervertretung. Persönlich, verständlich und konsequent.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Erstgespräch vereinbaren</a>
+        <a href="#rechtsgebiete" class="btn btn-ghost">Rechtsgebiete ansehen</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="hero-card">
+        <div class="cap">
+          <div class="eyebrow">Fachanwaltschaft</div>
+          <p>Fachanwalt für Strafrecht · Schleswig-Holsteinische Rechtsanwaltskammer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ ÜBER MICH ============ -->
+  <section id="ueber-mich">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-portrait" aria-hidden="true"></div>
+        <div>
+          <div class="eyebrow">Über mich</div>
+          <h2>Juristische Sorgfalt, verständlich erklärt.</h2>
+          <p style="color:#4a4740;font-size:16px;margin-top:18px;max-width:60ch;">
+            Als Fachanwalt für Strafrecht in Schleswig vertrete ich Beschuldigte ebenso wie Opfer von Straftaten — von der ersten Vernehmung bis zur Hauptverhandlung. Mandantinnen und Mandanten schätzen an meiner Arbeit vor allem eines: Ich erkläre rechtliche Zusammenhänge so, dass sie tatsächlich verstanden werden — bevor ich handle, nicht erst danach. Jeder Fall bekommt eine ehrliche Einschätzung der Lage, keine leeren Versprechen.
+          </p>
+          <ul class="credentials">
+            <li><span class="yr">[Jahr]</span><span>Studium der Rechtswissenschaften, [Universität einfügen]</span></li>
+            <li><span class="yr">[Jahr]</span><span>Zweites Staatsexamen, Schleswig-Holstein</span></li>
+            <li><span class="yr">[Jahr]</span><span>Zulassung als Rechtsanwalt, Schleswig-Holsteinische Rechtsanwaltskammer</span></li>
+            <li><span class="yr">[Jahr]</span><span>Fachanwalt für Strafrecht</span></li>
+            <li><span class="yr">Heute</span><span>Kanzlei in der Gottorfstraße, Schleswig</span></li>
+          </ul>
+          <p style="font-size:13px;color:#8a8474;font-style:italic;margin-top:14px;">Bitte die Jahreszahlen und die Universität durch die tatsächlichen Angaben ersetzen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WERDEGANG ============ -->
+  <section id="werdegang" style="background:var(--sand);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Werdegang</div>
+        <h2>Der Weg zur eigenen Kanzlei</h2>
+        <p>Ausbildung, Stationen und Weiterbildung — der berufliche Hintergrund, auf dem meine Beratung heute aufbaut. (Platzhalter-Jahre bitte durch echte Angaben ersetzen.)</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="yr">[Jahre] · Studium &amp; Referendariat</div><p>Rechtswissenschaften und Referendariat bei Gerichten und Kanzleien in Schleswig-Holstein.</p></div>
+        <div class="tl-item"><div class="yr">[Jahre] · Anwaltsstation</div><p>Tätigkeit als Rechtsanwalt mit wachsendem Schwerpunkt im Straf- und Strafprozessrecht.</p></div>
+        <div class="tl-item"><div class="yr">[Jahr] · Fachanwaltschaft</div><p>Erwerb des Fachanwaltstitels für Strafrecht nach entsprechender Fortbildung und Fallpraxis.</p></div>
+        <div class="tl-item"><div class="yr">[Jahr] · Kanzleigründung</div><p>Eröffnung der eigenen Kanzlei in der Gottorfstraße in Schleswig.</p></div>
+        <div class="tl-item"><div class="yr">Laufend · Fortbildung</div><p>Regelmäßige Fortbildungen im Straf-, Familien- und Erbrecht, um auf aktuellem Stand zu beraten.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECHTSGEBIETE ============ -->
+  <section id="rechtsgebiete" class="practice-band">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Rechtsgebiete</div>
+        <h2 style="color:white;">Worin ich Sie berate</h2>
+        <p>Beratung und Vertretung in außergerichtlichen wie gerichtlichen Angelegenheiten — in folgenden Schwerpunkten.</p>
+      </div>
+      <div class="practice-grid">
+        <div class="practice-card"><span class="num">01</span><h3>Strafrecht</h3><p>Fachanwalt für Strafrecht — Verteidigung im Ermittlungsverfahren und vor Gericht.</p></div>
+        <div class="practice-card"><span class="num">02</span><h3>Erbrecht</h3><p>Testamentsgestaltung, Erbauseinandersetzungen und Beratung von Erbengemeinschaften.</p></div>
+        <div class="practice-card"><span class="num">03</span><h3>Arbeitsrecht</h3><p>Kündigungsschutz, Aufhebungsverträge und Beratung für Arbeitnehmer wie Arbeitgeber.</p></div>
+        <div class="practice-card"><span class="num">04</span><h3>Familienrecht</h3><p>Scheidung, Unterhalt, Sorge- und Umgangsrecht.</p></div>
+        <div class="practice-card"><span class="num">05</span><h3>Verwaltungsrecht</h3><p>Vertretung gegenüber Behörden und in verwaltungsgerichtlichen Verfahren.</p></div>
+        <div class="practice-card"><span class="num">06</span><h3>Mietrecht</h3><p>Kündigungen, Mängelrechte und Auseinandersetzungen zwischen Mietern und Vermietern.</p></div>
+        <div class="practice-card"><span class="num">07</span><h3>Verkehrsrecht</h3><p>Unfallregulierung, Bußgeldverfahren und Fragen rund um den Führerschein.</p></div>
+        <div class="practice-card"><span class="num">08</span><h3>Sozialrecht</h3><p>Beratung und Vertretung gegenüber Sozialversicherungsträgern und Jobcentern.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARBEITSWEISE ============ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Arbeitsweise</div>
+        <h2>Wie eine Zusammenarbeit abläuft</h2>
+      </div>
+      <div class="values">
+        <div class="value"><h3><span class="idx">i.</span> Offenes Erstgespräch</h3><p>Zu Beginn steht eine ehrliche Einschätzung Ihrer Situation — inklusive realistischer Aussicht auf Kosten und Dauer.</p></div>
+        <div class="value"><h3><span class="idx">ii.</span> Klare Kommunikation</h3><p>Sie erfahren, was in Ihrem Fall passiert und warum — in verständlicher Sprache, nicht in Paragraphen.</p></div>
+        <div class="value"><h3><span class="idx">iii.</span> Konsequente Vertretung</h3><p>Wo eine außergerichtliche Einigung möglich ist, suche ich sie. Wo nicht, vertrete ich Sie entschlossen vor Gericht.</p></div>
+        <div class="value"><h3><span class="idx">iv.</span> Transparente Abrechnung</h3><p>Die Abrechnung erfolgt nach der Rechtsanwaltsvergütungsordnung (RVG) oder auf Wunsch per individueller Honorarvereinbarung — Sie wissen vorab, woran Sie sind.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section id="kontakt" class="contact-band">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="eyebrow">Kontakt</div>
+          <h2>Erstgespräch vereinbaren</h2>
+          <p class="lead">Rufen Sie an oder schreiben Sie eine E-Mail - ich melde mich in der Regel innerhalb ein bis zwei Werktage zurück.</p>
+          <div class="info-row"><span class="label">Adresse</span><span class="val">Kanzlei Holger Ley<br>Gottorfstraße 9, 24837 Schleswig</span></div>
+          <div class="info-row"><span class="label">Telefon</span><span class="val"><a href="tel:+494621932832">04621 / 93 28 32</a></span></div>
+          <div class="info-row"><span class="label">E-Mail</span><span class="val"><a href="mailto:RA-Ley@online.de">RA-Ley@online.de</a></span></div>
+          <div class="info-row"><span class="label">Sprechzeiten</span><span class="val">Montag bis Freitag 09.00 - 12.30 | 15.00 - 18.00 Uhr | Samstag und Sonntag geschlossen</span></div>
+          <div class="info-row"><span class="label">Zugang</span><span class="val">Das Büro ist nicht barrierefrei zugänglich.</span></div>
+          <div class="info-row"><span class="label">Hausbesuche</span><span class="val">Auf Anfrage sind Hausbesuche möglich.</span></div>
+          <br>
+          <a href="mailto:RA-Ley@online.de" class="nav-cta">Jetzt kontaktieren</a>
+        </div>
+          
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="seal" aria-hidden="true" style="border-color:rgba(246,242,233,0.4);">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M4 30 L10 22 L15 26 L21 16 L27 24 L32 18 L37 30" stroke="#C7A876" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/><line x1="20" y1="16" x2="20" y2="8" stroke="#C7A876" stroke-width="1.4"/></svg>
+        </div>
+        <div class="brand-name">Holger Ley<span style="color:var(--brass-light);">Rechtsanwalt · Schleswig</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#rechtsgebiete">Rechtsgebiete</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kanzlei Holger Ley, Schleswig</span>
+      <span style="display:flex;gap:20px;"><a href="#">Impressum</a><a href="#">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += 'position:absolute;top:64px;left:0;right:0;background:#F6F2E9;flex-direction:column;padding:20px 32px;gap:18px;border-bottom:1px solid rgba(20,41,58,0.14);';
+  });
+</script>
+
+</body>
+</html>
